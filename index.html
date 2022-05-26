@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <header><h1>Indice de Masa Corporal</h1></header>
+    <section class="calculos">
+        <br>
+        ingrese su peso(kg):</p>
+        <input type="number" id="n1">
+        <br><br>
+        ingrese su altura(cm):</p>
+        <input type="number" id="n2">
+        <br><br>
+        <button class="button" id="btn1">calcular</button>
+        
+        <h2>
+
+            <div id="resultado"></div>
+            <div id="salida"></div>
+            <br>
+            <img src="peso.jpg" width="100%" height="auto">
+
+            <script>
+                //  ------------------ metodo imc
+                var b = document.getElementById('btn1');
+                b.addEventListener('click', imc);
+
+                function imc() {
+                    var nr1 = parseInt(document.getElementById('n1').value);
+                    var nr2 = parseInt(document.getElementById('n2').value);
+
+                    let s = 10000 * nr1 / (nr2 * nr2);
+                    document.getElementById("resultado").innerHTML = "el indice es: " + s.toFixed(1)
+
+                    if (s < 18.5) {
+                        document.getElementById("salida").innerHTML = "Peso inferior al Normal";
+                    }
+                    else if (s > 18.5 && s < 24.9) {
+                        document.getElementById("salida").innerHTML = "Peso Normal";
+                    }
+                    else if (s > 25 && s < 29.9) {
+                        document.getElementById("salida").innerHTML = "Peso superior al Normal";
+                    }
+                    else if (s > 30) {
+                        document.getElementById("salida").innerHTML = "Peso con Obesidad";
+                    }
+                }
+                
+               
+
+
+            </script>
+</section>
+</body>
+
+</html>
